@@ -1,0 +1,160 @@
+{
+  "os":  "Linux-5.15.134netflix-g795dc0d5168f-x86_64-with-glibc2.35",
+  "python":  "3.11.10",
+  "startedAt":  "2024-10-10T21:30:50.620203Z",
+  "args":  [
+    "--gradient_checkpointing",
+    "--pretrained_model_name_or_path",
+    "THUDM/CogVideoX-5b",
+    "--cache_dir",
+    "/root/projects/.cache/huggingface/models",
+    "--enable_tiling",
+    "--enable_slicing",
+    "--instance_data_root",
+    "/root/projects/Data/VPS07_Kevin_Williams/",
+    "--caption_column",
+    "prompts.txt",
+    "--video_column",
+    "videos.txt",
+    "--validation_prompt",
+    "SKS Kevin walking down the beach.",
+    "--validation_prompt_separator",
+    ":::",
+    "--num_validation_videos",
+    "1",
+    "--validation_epochs",
+    "100",
+    "--seed",
+    "42",
+    "--rank",
+    "128",
+    "--lora_alpha",
+    "64",
+    "--mixed_precision",
+    "bf16",
+    "--output_dir",
+    "ckpt/5b-t2v-lora/debug/",
+    "--height",
+    "480",
+    "--width",
+    "720",
+    "--fps",
+    "8",
+    "--max_num_frames",
+    "49",
+    "--skip_frames_start",
+    "0",
+    "--skip_frames_end",
+    "0",
+    "--train_batch_size",
+    "1",
+    "--num_train_epochs",
+    "30",
+    "--checkpointing_steps",
+    "1000",
+    "--gradient_accumulation_steps",
+    "1",
+    "--learning_rate",
+    "1e-3",
+    "--lr_scheduler",
+    "cosine_with_restarts",
+    "--lr_warmup_steps",
+    "200",
+    "--lr_num_cycles",
+    "1",
+    "--enable_slicing",
+    "--enable_tiling",
+    "--gradient_checkpointing",
+    "--optimizer",
+    "AdamW",
+    "--adam_beta1",
+    "0.9",
+    "--adam_beta2",
+    "0.95",
+    "--max_grad_norm",
+    "1.0",
+    "--allow_tf32",
+    "--report_to",
+    "wandb"
+  ],
+  "program":  "/root/projects/CogVideo/finetune/train_cogvideox_lora.py",
+  "codePath":  "finetune/train_cogvideox_lora.py",
+  "git":  {
+    "remote":  "https://github.com/THUDM/CogVideo.git",
+    "commit":  "da5fc1c1cab3b1451c866b1f9111eeec9d0410e4"
+  },
+  "email":  "ycxu@umd.edu",
+  "root":  "/root/projects/CogVideo/finetune",
+  "host":  "25e19cc5-db78-4ab1-a54d-549942c814c3",
+  "username":  "root",
+  "executable":  "/root/anaconda3/envs/diffusers/bin/python",
+  "codePathLocal":  "train_cogvideox_lora.py",
+  "cpu_count":  48,
+  "cpu_count_logical":  96,
+  "gpu":  "[NVIDIA A100-SXM4-80GB, NVIDIA A100-SXM4-80GB, NVIDIA A100-SXM4-80GB, NVIDIA A100-SXM4-80GB, NVIDIA A100-SXM4-80GB, NVIDIA A100-SXM4-80GB, NVIDIA A100-SXM4-80GB, NVIDIA A100-SXM4-80GB]",
+  "gpu_count":  8,
+  "disk":  {
+    "/":  {
+      "total":  "6911413977088",
+      "used":  "13653356544"
+    }
+  },
+  "memory":  {
+    "total":  "1177034244096"
+  },
+  "cpu":  {
+    "count":  48,
+    "countLogical":  96
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "NVIDIA A100-SXM4-80GB",
+      "memoryTotal":  "85899345920",
+      "cudaCores":  6912,
+      "architecture":  "Ampere"
+    },
+    {
+      "name":  "NVIDIA A100-SXM4-80GB",
+      "memoryTotal":  "85899345920",
+      "cudaCores":  6912,
+      "architecture":  "Ampere"
+    },
+    {
+      "name":  "NVIDIA A100-SXM4-80GB",
+      "memoryTotal":  "85899345920",
+      "cudaCores":  6912,
+      "architecture":  "Ampere"
+    },
+    {
+      "name":  "NVIDIA A100-SXM4-80GB",
+      "memoryTotal":  "85899345920",
+      "cudaCores":  6912,
+      "architecture":  "Ampere"
+    },
+    {
+      "name":  "NVIDIA A100-SXM4-80GB",
+      "memoryTotal":  "85899345920",
+      "cudaCores":  6912,
+      "architecture":  "Ampere"
+    },
+    {
+      "name":  "NVIDIA A100-SXM4-80GB",
+      "memoryTotal":  "85899345920",
+      "cudaCores":  6912,
+      "architecture":  "Ampere"
+    },
+    {
+      "name":  "NVIDIA A100-SXM4-80GB",
+      "memoryTotal":  "85899345920",
+      "cudaCores":  6912,
+      "architecture":  "Ampere"
+    },
+    {
+      "name":  "NVIDIA A100-SXM4-80GB",
+      "memoryTotal":  "85899345920",
+      "cudaCores":  6912,
+      "architecture":  "Ampere"
+    }
+  ],
+  "cudaVersion":  "12.2"
+}

@@ -1,16 +1,17 @@
 args:
-  image2video: False # True for image2video, False for text2video
+  image2video: True # True for image2video, False for text2video
   latent_channels: 16
   mode: inference
-  load: "/root/projects/CogVideo/sat/CogVideoX-5b-sat/transformer" # This is for Full model without lora adapter
+  load: "/root/projects/CogVideo/sat/checkpoints/5b-lora-I2V/KevinS07-iters_500_lr_0-09-27-15-32/" # yc: change to the folder
   # load: "{your lora folder} such as zRzRzRzRzRzRzR/lora-disney-08-20-13-28" # This is for Full model without lora adapter
+
   batch_size: 1
   input_type: txt
-  input_file: configs/test.txt
+  input_file: configs/KevinS07_I2V.txt # yc: change this
   sampling_image_size: [480, 720]
   sampling_num_frames: 13  # Must be 13, 11 or 9
   sampling_fps: 8
   # fp16: True # For CogVideoX-2B
   bf16: True # For CogVideoX-5B
-  output_dir: outputs/CogVideoX-5B-Original/
+  output_dir: outputs/5b-lora-I2V/S07/KevinS07-iters_500_lr_0-09-27-15-32_checkpoints_1 # yc: change this
   force_inference: True

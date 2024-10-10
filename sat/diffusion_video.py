@@ -140,21 +140,24 @@ class SATVideoDiffusionEngine(nn.Module):
         return image
 
     def shared_step(self, batch: Dict) -> Any:
-        x = self.get_input(batch)
+        '''
+        batch.keys(): ['mp4', 'txt', 'num_frames', 'fps', 'global_step']
+        batch['mp4'].size() = [bs=1, num_frames=49, 3, 480, 720]
+        '''
+        x = self.get_input(batch) # [bs=1, num_frames=49, 3, 480, 720]
         if self.lr_scale is not None:
             lr_x = F.interpolate(x, scale_factor=1 / self.lr_scale, mode="bilinear", align_corners=False)
             lr_x = F.interpolate(lr_x, scale_factor=self.lr_scale, mode="bilinear", align_corners=False)
             lr_z = self.encode_first_stage(lr_x, batch)
             batch["lr_input"] = lr_z
-
-        x = x.permute(0, 2, 1, 3, 4).contiguous()
+        x = x.permute(0, 2, 1, 3, 4).contiguous() # torch.Size([1, 3, 49, 480, 720])
         if self.noised_image_input:
             image = x[:, :, 0:1]
             image = self.add_noise_to_first_frame(image)
             image = self.encode_first_stage(image, batch)
-
-        x = self.encode_first_stage(x, batch)
-        x = x.permute(0, 2, 1, 3, 4).contiguous()
+        x = self.encode_first_stage(x, batch) # torch.Size([1, 16, 13, 60, 90]) (spatial/8, temporal/4)
+        # breakpoint()
+        x = x.permute(0, 2, 1, 3, 4).contiguous() # torch.Size([1, 13, 16, 60, 90])
         if self.noised_image_input:
             image = image.permute(0, 2, 1, 3, 4).contiguous()
             if self.noised_image_all_concat:

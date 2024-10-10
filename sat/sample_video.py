@@ -177,6 +177,8 @@ def sampling_main(args, model_cls):
                     print(key, [len(l) for l in batch[key]])
                 else:
                     print(key, batch[key])
+
+            model.to(device) # yc: added (seems to be a bug)
             c, uc = model.conditioner.get_unconditional_conditioning(
                 batch,
                 batch_uc=batch_uc,
